@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Primrose Partners</title>
+<meta name="description" content="Primrose Partners is a small investment partnership acquiring owner-operated companies in manufacturing, industrial services, and adjacent categories.">
+<meta property="og:title" content="Primrose Partners">
+<meta property="og:description" content="We buy good private businesses and hold them for a long time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://primrosepartners.co">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Primrose Partners">
+<meta name="twitter:description" content="We buy good private businesses and hold them for a long time.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +26,7 @@
     --accent: #1E3A2B;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   html, body {
     background: var(--bg);
     color: var(--ink);
@@ -62,6 +71,11 @@
     color: var(--ink);
   }
 
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   /* Hero */
   .hero {
     max-width: 1080px;
@@ -77,6 +91,7 @@
     color: var(--ink);
     max-width: 880px;
     margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
   }
   .hero h1 em {
     font-style: italic;
@@ -87,11 +102,30 @@
     line-height: 1.5;
     color: var(--ink-soft);
     max-width: 620px;
+    animation: fadeUp 0.8s ease 0.15s both;
+  }
+  .hero-cta {
+    display: inline-block;
+    margin-top: 36px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--bg);
+    background: var(--accent);
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 4px;
+    letter-spacing: 0.01em;
+    transition: background 0.15s;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+  .hero-cta:hover {
+    background: #162e21;
   }
 
   /* Section wrapper */
   .section {
     border-top: 1px solid var(--rule);
+    scroll-margin-top: 64px;
   }
   .section-inner {
     max-width: 1080px;
@@ -169,10 +203,35 @@
     margin-bottom: 8px;
   }
   .criteria-value {
-    font-family: 'Instrument Serif', serif;
-    font-size: 22px;
-    line-height: 1.3;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.45;
     color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* About left column */
+  .about-left {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-photo {
+    margin: 28px 0 0;
+    max-width: 180px;
+  }
+  .about-photo img {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+  }
+  .about-photo figcaption {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-top: 12px;
+    letter-spacing: 0;
+    text-transform: none;
   }
 
   /* Who */
@@ -186,22 +245,6 @@
   .who strong {
     color: var(--ink);
     font-weight: 500;
-  }
-  .who figure {
-    margin: 40px auto 0;
-    max-width: 380px;
-  }
-  .who figure img {
-    display: block;
-    width: 100%;
-    border-radius: 4px;
-  }
-  .who figcaption {
-    font-size: 13px;
-    font-style: italic;
-    color: var(--muted);
-    text-align: center;
-    margin-top: 8px;
   }
 
   /* Contact */
@@ -236,6 +279,12 @@
   .contact-value a:hover {
     border-bottom-color: var(--ink);
   }
+  .confidentiality {
+    margin-top: 36px;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+  }
 
   /* Footer */
   footer {
@@ -248,6 +297,26 @@
     font-size: 13px;
     color: var(--muted);
   }
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  footer a:hover { color: var(--ink); }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .principle { transition-delay: calc(var(--i, 0) * 0.08s); }
+  .criteria-item { transition-delay: calc(var(--i, 0) * 0.06s); }
+  .contact-item { transition-delay: calc(var(--i, 0) * 0.06s); }
 
   /* Mobile */
   @media (max-width: 720px) {
@@ -262,8 +331,8 @@
     .criteria, .contact { grid-template-columns: 1fr; gap: 24px; }
     .nav-inner, footer { padding: 20px 24px; }
     .nav-links a { margin-left: 20px; font-size: 13px; }
+    .approach-photo { max-width: 240px; }
     .approach-intro { font-size: 22px; }
-    .who figure img, .who figcaption { max-width: 100%; }
     footer { flex-direction: column; gap: 8px; }
   }
 </style>
@@ -285,6 +354,7 @@
 <div class="hero">
   <h1>We buy good private businesses and hold them for a long time.</h1>
   <p class="hero-sub">Primrose Partners is a small investment partnership acquiring owner-operated companies in manufacturing, industrial services, and adjacent categories.</p>
+  <a href="mailto:michael@primrosepartners.co?subject=Primrose%20Partners%20%E2%80%93%20Introduction" class="hero-cta">Start a conversation</a>
 </div>
 
 <section id="approach" class="section">
@@ -320,11 +390,11 @@
       <div class="criteria">
         <div class="criteria-item">
           <div class="criteria-label">Earnings</div>
-          <div class="criteria-value">$1M to $10M annually</div>
+          <div class="criteria-value">$1M–$10M</div>
         </div>
         <div class="criteria-item">
           <div class="criteria-label">History</div>
-          <div class="criteria-value">Ten plus years of profitable operation</div>
+          <div class="criteria-value">10+ years of profitable operation</div>
         </div>
         <div class="criteria-item">
           <div class="criteria-label">Industry</div>
@@ -336,11 +406,11 @@
         </div>
         <div class="criteria-item">
           <div class="criteria-label">Structure</div>
-          <div class="criteria-value">Full acquisition, majority, or rolling equity</div>
+          <div class="criteria-value">Full or majority acquisition</div>
         </div>
         <div class="criteria-item">
           <div class="criteria-label">Geography</div>
-          <div class="criteria-value">United States, preference for the Northeast</div>
+          <div class="criteria-value">USA</div>
         </div>
       </div>
     </div>
@@ -349,15 +419,16 @@
 
 <section id="about" class="section">
   <div class="section-inner">
-    <div class="section-label">About</div>
-    <div class="section-body who">
-      <p>I'm <strong>Michael Warshowsky</strong>. I've spent my career starting and building companies. I founded an insurance startup where I raised millions in venture capital and led it through multi-state regulatory licensing. I've joined small companies early and helped grow them, most recently as a generalist on the founding team at Rulebase, a YC-backed compliance technology company.</p>
-      <p>I know what it takes to run lean, sell, hire, and operate across very different industries. I hold degrees in computer science and software engineering, and before my career in technology I studied Talmudic law and ethics at Machon Yaakov in Jerusalem.</p>
-      <p>Primrose is funded by my own capital and by friends and family. We are not a fund with outside investors or a clock. We understand what it means to build something around people you know.</p>
-      <figure>
-        <img src="Primeroselane.jpeg" alt="Primrose Lane">
-        <figcaption>Primrose Lane, where I grew up.</figcaption>
+    <div class="about-left">
+      <figure class="about-photo">
+        <img src="headshot.png" alt="Michael Warshowsky">
+        <figcaption>Managing Partner</figcaption>
       </figure>
+    </div>
+    <div class="section-body who">
+      <p><strong>Michael Warshowsky</strong> has spent his career starting and building companies. He founded an insurance startup where he raised millions in venture capital and led it through multi-state regulatory licensing. He has joined small companies early and helped grow them, most recently as a generalist on the founding team at Rulebase, a YC-backed compliance technology company.</p>
+      <p>He knows what it takes to run lean, sell, hire, and operate across very different industries. He holds degrees in computer science and software engineering, and has also spent time studying Talmudic law and ethics at Machon Yaakov in Jerusalem.</p>
+      <p>Primrose is named for the street he grew up on. It is funded by his own capital and by friends and family. No institutional money, no fund structure, no clock. Primrose understands what it means to build something around people you know.</p>
     </div>
   </div>
 </section>
@@ -384,20 +455,21 @@
           <div class="contact-value">Philadelphia, Pennsylvania</div>
         </div>
       </div>
+      <p class="confidentiality">All conversations are held in strict confidence.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <div>Primrose Partners</div>
-  <div>Philadelphia</div>
+  <div>&copy; 2026 Primrose Partners</div>
+  <div><a href="mailto:michael@primrosepartners.co">michael@primrosepartners.co</a></div>
 </footer>
 
 <script>
   const sections = document.querySelectorAll('section.section');
   const navLinks = document.querySelectorAll('.nav-links a');
 
-  const observer = new IntersectionObserver((entries) => {
+  const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
@@ -410,8 +482,26 @@
     rootMargin: '-40% 0px -55% 0px',
     threshold: 0
   });
+  sections.forEach(section => navObserver.observe(section));
 
-  sections.forEach(section => observer.observe(section));
+  document.querySelectorAll('.principle, .criteria-item, .contact-item, .who p, .about-photo, .confidentiality').forEach((el, i) => {
+    el.classList.add('reveal');
+    const siblings = el.parentElement.querySelectorAll(':scope > .' + el.className.split(' ')[0]);
+    const index = Array.from(siblings).indexOf(el);
+    el.style.setProperty('--i', index);
+  });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -40px 0px'
+  });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
 
 </body>
