@@ -6,12 +6,12 @@
 <title>Primrose Partners</title>
 <meta name="description" content="Primrose Partners is a small investment partnership acquiring owner-operated companies in manufacturing, industrial services, and adjacent categories.">
 <meta property="og:title" content="Primrose Partners">
-<meta property="og:description" content="We buy good private businesses and hold them for a long time.">
+<meta property="og:description" content="We buy good businesses and hold them for a long time.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://primrosepartners.co">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Primrose Partners">
-<meta name="twitter:description" content="We buy good private businesses and hold them for a long time.">
+<meta name="twitter:description" content="We buy good businesses and hold them for a long time.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -352,7 +352,7 @@
 </div>
 
 <div class="hero">
-  <h1>We buy good private businesses and hold them for a long time.</h1>
+  <h1>We buy good businesses and hold them<span style="letter-spacing:0.04em">...</span>for a long time.</h1>
   <p class="hero-sub">Primrose Partners is a small investment partnership acquiring owner-operated companies in manufacturing, industrial services, and adjacent categories.</p>
   <a href="mailto:michael@primrosepartners.co?subject=Primrose%20Partners%20%E2%80%93%20Introduction" class="hero-cta">Start a conversation</a>
 </div>
@@ -361,10 +361,11 @@
   <div class="section-inner">
     <div class="section-label">Approach</div>
     <div class="section-body">
+      <p class="approach-intro">We see ourselves as stewards of your business, your legacy, and everything you've spent your life building. We're here to see it prosper.</p>
       <div class="principles">
         <div class="principle">
           <div class="principle-num">01</div>
-          <p>We buy companies we would be comfortable owning indefinitely. <strong>Short holding periods produce short thinking.</strong></p>
+          <p>We buy companies we intend to keep. Not to flip, not to strip, not to resell. <strong>Short holding periods produce short thinking.</strong></p>
         </div>
         <div class="principle">
           <div class="principle-num">02</div>
@@ -426,7 +427,7 @@
       </figure>
     </div>
     <div class="section-body who">
-      <p><strong>Michael Warshowsky</strong> has spent his career starting and building companies. He founded an insurance startup where he raised millions in venture capital and led it through multi-state regulatory licensing. He has joined small companies early and helped grow them, most recently as a generalist on the founding team at Rulebase, a YC-backed compliance technology company.</p>
+      <p><strong>Michael Warshowsky</strong> has spent his career starting and building companies. He founded an insurance startup where he raised millions in venture capital and led it through multi-state regulatory licensing. He has joined small companies early and helped grow them, most recently on the founding team at Rulebase, a banking compliance technology company.</p>
       <p>He knows what it takes to run lean, sell, hire, and operate across very different industries. He holds degrees in computer science and software engineering, and has also spent time studying Talmudic law and ethics at Machon Yaakov in Jerusalem.</p>
       <p>Primrose is named for the street he grew up on. It is funded by his own capital and by friends and family. No institutional money, no fund structure, no clock. Primrose understands what it means to build something around people you know.</p>
     </div>
@@ -484,7 +485,7 @@
   });
   sections.forEach(section => navObserver.observe(section));
 
-  document.querySelectorAll('.principle, .criteria-item, .contact-item, .who p, .about-photo, .confidentiality').forEach((el, i) => {
+  document.querySelectorAll('.approach-intro, .principle, .criteria-item, .contact-item, .who p, .about-photo, .confidentiality').forEach((el, i) => {
     el.classList.add('reveal');
     const siblings = el.parentElement.querySelectorAll(':scope > .' + el.className.split(' ')[0]);
     const index = Array.from(siblings).indexOf(el);
